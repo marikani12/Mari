@@ -1,0 +1,527 @@
+
+Exercise 1: Create a Git Repository
+
+AIM: To create a local Git repository and initialize Git.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Create a folder for the Git practical.
+STEP 3: Navigate to the created folder.
+STEP 4: Initialize the Git repository using git init.
+STEP 5: Check the repository status.
+STEP 6: End the terminal.
+TERMINAL RUN CODE
+mkdir git-practical
+cd git-practical
+git init
+git status
+OUTPUT
+ 
+
+RESULT: Thus, a local Git repository was successfully created and initialized.
+
+
+
+Date:
+Exercise 2: Create a File and Track Changes
+AIM: To create a file and track it using Git.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Create a text file and add content.
+STEP 4: Check the repository status.
+STEP 5: Stage the file using git add.
+STEP 6: Check the staged changes.
+STEP 7: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+echo "Welcome to Git and GitHub" > message.txt
+git status
+git add message.txt
+git status
+OUTPUT
+ 
+
+RESULT: Thus, a file was created and staged successfully for tracking by Git.
+
+
+
+Date:
+Exercise 3: Commit Changes to the Repository
+AIM: To save staged changes permanently in the Git repository using git commit.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Create or modify a file.
+STEP 4: Stage the file using git add.
+STEP 5: Commit the changes with a suitable message.
+STEP 6: Verify the commit using git log.
+STEP 7: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+echo "First Git commit" > commit-demo.txt
+git add commit-demo.txt
+git commit -m "Add first commit demo"
+git log --oneline
+ OUTPUT 
+
+
+
+
+
+
+
+
+
+
+
+
+RESULT: Thus, the file changes were successfully committed to the local Git repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Date:
+Exercise 4: View Commit History
+AIM: To view the commit history of a Git repository.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Execute git log to view the complete commit history.
+STEP 4: Execute git log --oneline to view a short summary of commits.
+STEP 5: Verify the commit messages and IDs.
+STEP 6: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+git log
+git log --oneline
+OUTPUT
+ 
+
+RESULT: Thus, the commit history was successfully viewed using Git commands.
+
+
+
+
+
+
+
+Date:
+Exercise 5: Undo Changes Using Git Commands
+AIM: To undo unwanted file changes using Git commands such as git checkout, git reset, and git revert.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Create and commit a file containing original content.
+STEP 4: Modify the file to demonstrate an unwanted change.
+STEP 5: Use git restore to discard an unstaged change.
+STEP 6: Use git reset or git revert when appropriate to undo committed changes.
+STEP 7: Check the repository status and verify the result.
+STEP 8: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+echo "Original content" > undo-demo.txt
+git add undo-demo.txt
+git commit -m "Add original content"
+
+echo "Unwanted change" > undo-demo.txt
+git restore undo-demo.txt
+cat undo-demo.txt
+git status
+
+
+
+
+
+
+
+ OUTPUT
+  
+
+
+
+
+
+
+
+
+
+
+
+
+RESULT: Thus, the unstaged modification was discarded, and the original file content was restored.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Date:
+Exercise 6: Create, Switch, and Delete a Branch
+AIM: To create, switch between, and delete branches in Git.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Display the existing branches using git branch.
+STEP 4: Create a new branch using git branch.
+STEP 5: Switch to the new branch using git switch.
+STEP 6: Verify the current branch.
+STEP 7: Switch back to the main branch.
+STEP 8: Delete the new branch after switching away from it.
+STEP 9: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+git branch
+git branch feature-demo
+git switch feature-demo
+git branch
+git switch main
+git branch -d feature-demo
+git branch
+OUTPUT
+ 
+RESULT: Thus, a new branch was created, selected, and deleted successfully.
+Date:
+Exercise 7: Resolve a Merge Conflict
+AIM: To identify and resolve a merge conflict between two Git branches.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Create a new branch for the conflicting changes.
+STEP 4: Modify the same file on the new branch and commit the change.
+STEP 5: Switch to the main branch and modify the same file differently.
+STEP 6: Commit the main branch change.
+STEP 7: Merge the feature branch into the main branch.
+STEP 8: Identify the merge conflict and edit the file to retain the required content.
+STEP 9: Stage the resolved file and commit the merge resolution.
+STEP 10: Verify the final file content and end the terminal.
+TERMINAL RUN CODE
+The following is a sample demonstration. Start with a clean repository and use a separate practice file.
+cd git-practical
+echo "Welcome to Git" > conflict-demo.txt
+git add conflict-demo.txt
+git commit -m "Add conflict demo file"
+
+git switch -c feature-conflict
+echo "Feature branch content" > conflict-demo.txt
+git add conflict-demo.txt
+git commit -m "Update file in feature branch"
+
+git switch main
+echo "Main branch content" > conflict-demo.txt
+git add conflict-demo.txt
+git commit -m "Update file in main branch"
+
+git merge feature-conflict
+If a conflict occurs, edit conflict-demo.txt and remove the conflict markers (<<<<<<<, =======, >>>>>>>). Keep the content you want, then run:
+git add conflict-demo.txt
+git commit -m "Resolve merge conflict"
+cat conflict-demo.txt
+git status
+OUTPUT
+ 
+ 
+
+RESULT: Thus, a merge conflict was resolved and the resulting changes were committed successfully.
+
+
+
+
+Date:
+Exercise 8: Store and Restore Changes Using Git Stash
+AIM: To temporarily save uncommitted changes using git stash and restore them later.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the Git repository.
+STEP 3: Create or modify a file with some content.
+STEP 4: Save the changes temporarily using git stash.
+STEP 5: Verify that the working directory is clean.
+STEP 6: Restore the saved changes using git stash pop.
+STEP 7: Display the file content and verify the restored changes.
+STEP 8: End the terminal.
+TERMINAL RUN CODE
+cd git-practical
+echo "Original content" > notes.txt
+git add notes.txt
+git commit -m "Add original notes"
+
+echo "Temporary work" >> notes.txt
+git stash push -m "Save temporary work"
+git status
+git stash pop
+cat notes.txt
+
+
+
+
+
+
+OUTPUT
+ 
+
+
+RESULT: Thus, uncommitted changes were temporarily stored and restored successfully.
+
+
+
+
+
+
+
+Date:
+Exercise 9: Configure a Remote Repository
+AIM: To connect a local Git repository with a remote repository hosted on GitHub.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the local Git repository.
+STEP 3: Check whether a remote repository is already configured.
+STEP 4: Add the GitHub repository URL as the origin remote if it is not configured.
+STEP 5: Verify the remote URL using git remote -v.
+STEP 6: End the terminal.
+TERMINAL RUN CODE
+cd /workspaces/git-practical
+git remote -v
+If origin is not configured, add it:
+git remote add origin https://github.com/anandajothi-2007/git-practical.git
+git remote -v
+If origin already exists, do not add it again.
+OUTPUT
+ 
+
+RESULT: Thus, the local repository was connected to the remote GitHub repository and the remote configuration was verified.
+
+
+
+
+
+
+
+Date:
+Exercise 10: Clone, Push, and Pull Changes
+AIM: To clone a remote repository, push local changes to GitHub, and pull remote changes to the local repository.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the required workspace directory.
+STEP 3: Clone the remote repository using git clone.
+STEP 4: Navigate into the cloned repository.
+STEP 5: Create a file containing sample content.
+STEP 6: Stage and commit the file.
+STEP 7: Push the commit to GitHub using git push.
+STEP 8: Pull the latest remote changes using git pull.
+STEP 9: Verify the file and repository status.
+STEP 10: End the terminal.
+TERMINAL RUN CODE
+Use a different folder name if git-practical already exists in your current directory.
+cd /workspaces
+git clone https://github.com/anandajothi-2007/git-practical.git
+cd git-practical
+echo "Push and pull practical" > push-pull-demo.txt
+git add push-pull-demo.txt
+git commit -m "Add push pull demo"
+git push origin main
+git pull origin main
+cat push-pull-demo.txt
+
+
+
+
+OUTPUT
+ 
+
+ 
+
+ 
+
+RESULT: Thus, the repository was cloned, local changes were committed and pushed, and remote changes were synchronized using Git.
+
+
+
+
+
+
+
+
+Date:
+Exercise 11: Fork a Repository and Create a Pull Request
+AIM: To fork another user's GitHub repository, make a change, and submit a pull request.
+ALGORITHM
+STEP 1: Open a web browser and sign in to GitHub.
+STEP 2: Open the repository octocat/Hello-World.
+STEP 3: Click the Fork option to create a copy under your GitHub account.
+STEP 4: Open the forked repository.
+STEP 5: Edit the README.md file and add the practical exercise documentation.
+STEP 6: Commit the changes to the forked repository.
+STEP 7: Select Contribute or Compare & pull request.
+STEP 8: Enter a suitable pull request title and description.
+STEP 9: Create the pull request and verify its status.
+STEP 10: End the browser session.
+TERMINAL RUN CODE
+This exercise was performed using the GitHub website, so terminal commands are not required. The equivalent command to clone your fork is:
+git clone https://github.com/anandajothi-2007/Hello-World.git
+cd Hello-World
+git status
+
+
+
+
+
+
+
+
+
+OUTPUT
+ 
+ 
+
+
+
+ 
+
+
+RESULT: Thus, a repository was forked, the README file was updated, and a pull request was submitted successfully.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Date:
+Exercise 12: Collaborative Editing with Multiple Contributors
+AIM: To collaborate with another contributor by sharing a GitHub repository and synchronizing changes.
+ALGORITHM
+STEP 1: Open a terminal.
+STEP 2: Navigate to the local Git repository.
+STEP 3: Create a collaboration file with an initial message.
+STEP 4: Stage, commit, and push the file to GitHub.
+STEP 5: Add another GitHub user as a collaborator through repository settings.
+STEP 6: Ask the collaborator to edit the file and commit the changes.
+STEP 7: Pull the latest changes from the remote repository.
+STEP 8: Display the file to verify both contributors' content.
+STEP 9: End the terminal.
+TERMINAL RUN CODE
+The initial file was created in the practical repository as follows:
+cd /workspaces/git-practical
+echo "Collaborative editing practical - Exercise 12" > collaboration.txt
+git add collaboration.txt
+git commit -m "Add collaborative editing exercise"
+git push origin main
+After the collaborator commits and pushes their contribution, run:
+git pull origin main
+cat collaboration.txt
+git log --oneline -5
+
+
+
+
+
+OUTPUT
+ 
+
+
+
+ 
+
+
+ 
+
+RESULT: Thus, collaborative editing was performed by sharing a repository, committing changes from another contributor, and synchronizing the updates with git pull.
+
+
+
+
+
+
+
+
+
+
+
+
+Date:
+Exercise 13: Manage GitHub Issues and Project Boards
+AIM: To create GitHub Issues and organize practical tasks using a GitHub Projects board.
+ALGORITHM
+STEP 1: Open a web browser and sign in to GitHub.
+STEP 2: Open the repository anandajothi-2007/git-practical.
+STEP 3: Navigate to the Issues tab.
+STEP 4: Click New issue and enter a suitable title and description.
+STEP 5: Create the issue and note its issue number.
+STEP 6: Open the Projects section and create a project named Git Practical Task Tracker if it does not already exist.
+STEP 7: Add task cards such as Complete Git documentation, Verify collaborative editing, and Review GitHub Issues.
+STEP 8: Link the created issue to the project using the issue's Projects section or by adding the issue from the project board.
+STEP 9: Verify that the issue and task cards appear in the project.
+STEP 10: End the browser session.
+TERMINAL RUN CODE
+This exercise is mainly performed through the GitHub website. To open the repository's Issues page from a terminal, use:
+echo "Open the GitHub Issues page in your browser:"
+echo "https://github.com/anandajothi-2007/git-practical/issues"
+ OUTPUT
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+RESULT: Thus, GitHub Issues were used to track work, and a project board was used to organize and monitor the practical tasks.
